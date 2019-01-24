@@ -30,3 +30,12 @@ target/
 
 *.project
 *.gitignore
+supra-boot/.settings/org.eclipse.wst.jsdt.ui.superType.container
+supra-boot/.settings/org.eclipse.wst.common.project.facet.core.xml
+supra-boot/.settings/org.eclipse.m2e.core.prefs
+supra-boot/.settings/org.eclipse.jdt.core.prefs
+supra-boot/.settings/.jsdtscope
+supra-boot/.project
+supra-boot/.classpath
+supra-boot/.settings/org.eclipse.wst.validation.prefs
+supra-boot/.settings/org.eclipse.wst.jsdt.ui.superType.name
