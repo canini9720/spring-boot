@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.supra.com/supra/service" targetNamespace="http://www.supra.com/supra/service">
+  <xs:element name="bookRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="isbn" type="xs:string" />
+        <xs:element name="title" type="xs:string" />
+        <xs:element name="author" type="xs:string" />
+        <xs:element maxOccurs="unbounded" name="character">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string" />
+              <xs:element minOccurs="0" name="friend-of" type="xs:string" />
+              <xs:element name="since" type="xs:string" />
+              <xs:element name="qualification" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="responseCode" type="xs:int" />
+        <xs:element name="responseDesc" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
