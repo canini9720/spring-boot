@@ -18,13 +18,6 @@ public class MainApplication extends SpringBootServletInitializer implements Web
 		SpringApplication.run(MainApplication.class, args);
 	}
 
-	@Bean
-	public ServletRegistrationBean webServlet() {
-		DispatcherServlet dispatcherServlet = new DispatcherServlet();
-		AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
-		dispatcherServlet.setApplicationContext(applicationContext);
-		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(dispatcherServlet, "/web/*");
-		return servletRegistrationBean;
-	}
+	
 
 }
