@@ -37,15 +37,27 @@ public class WebServiceConfig extends WsConfigurerAdapter{
 	@Value("${server.servlet.context-path}")
     private String servletContextPath; 
 	
+	@Value("${app.server}")
+    private String appServer; 
+	
 	public static  String supraAppInfoLocUri = "";
 	public static  String supraBookLocUri = "";
+	
+	public static String server="";
 
 
 	@PostConstruct
 	public void initialize() {
 		System.out.println("context="+servletContextPath);
-		supraAppInfoLocUri="http://localhost:7003"+servletContextPath+WebServiceConstants.SUPR_APPLICANTINFO_LOCATION_URI;
-		supraBookLocUri="http://localhost:7003"+servletContextPath+WebServiceConstants.SUPR_BOOK_LOCATION_URI;
+		System.out.println("app.server="+appServer);
+		if(appServer.equalsIgnoreCase("tomcat")){
+			supraAppInfoLocUri="http://localhost:8080"+servletContextPath+WebServiceConstants.SUPR_APPLICANTINFO_LOCATION_URI;
+			supraBookLocUri="http://localhost:8080"+servletContextPath+WebServiceConstants.SUPR_BOOK_LOCATION_URI;
+		}else if(appServer.equalsIgnoreCase("weblogic")){
+			supraAppInfoLocUri="http://localhost:7002"+servletContextPath+WebServiceConstants.SUPR_APPLICANTINFO_LOCATION_URI;
+			supraBookLocUri="http://localhost:7002"+servletContextPath+WebServiceConstants.SUPR_BOOK_LOCATION_URI;
+		}
+		
 		
 		System.out.println("supraAppInfoLocUri="+supraAppInfoLocUri);
 		System.out.println("supraBookLocUri="+supraBookLocUri);
@@ -69,7 +81,7 @@ public class WebServiceConfig extends WsConfigurerAdapter{
 	}
 	
 	
-
+//http://localhost:8080/springboot/wsservice/ws/supraBookService/supraSample.wsdl
 	@Bean(name = "supraSample")
 	public DefaultWsdl11Definition applicantInfoWsdl11Definition() {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
